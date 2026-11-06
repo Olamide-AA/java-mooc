@@ -21,10 +21,16 @@ public class Intro {
         // Convert user input to int
         int age = Integer.valueOf(sc.nextLine());
 
+        int ageInDays = age * 365;
+
+        System.out.print("Write  a random number: ");
+        int randomNumber1 = Integer.valueOf(sc.next());
+
         System.out.println("Here is the story:\n" +
                 "Once upon a time there was a" + age + "year old " + name + ", who was a " + job + ".\n" +
                 "On the way to work, " + name + " reflected on life.\nPerhaps Bob will not be a " + job
-                + " forever.");
-
+                + " forever./nBob has lived for appx " + ageInDays + " days");
+        sc.close();
     }
+
 }
