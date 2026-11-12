@@ -1,3 +1,5 @@
+package lessons;
+
 public class Room {
     private String code;
     private int numberOfSeats;

@@ -1,3 +1,4 @@
+package lessons;
 
 //A class defines the attributes and behaviors of objects that are created from it
 public class Person {
