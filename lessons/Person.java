@@ -16,6 +16,12 @@ public class Person {
      * It is useful for passing in a value for instance variable as a new object is
      * created
      */
+
+    // A constructor can use another constructor
+    public Person(String name) {
+        this(name, 0, 0.0, 0.0);
+    }
+
     public Person(String name, int age, double height, double weight) {
         this.name = name;
         this.age = age;

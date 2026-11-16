@@ -2,11 +2,24 @@ package paymentCard;
 
 public class Main {
     public static void main(String[] args) {
-        PaymentCard card = new PaymentCard(5);
-        card.eatAffordably();
-        System.out.println(card);
-        card.addMoney(-12);
-        card.eatHeartily();
-        System.out.println(card);
+        PaymentTerminal unicafeExactum = new PaymentTerminal();
+        System.out.println(unicafeExactum);
+
+        PaymentCard annesCard = new PaymentCard(2);
+
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+
+        boolean wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
+
+        unicafeExactum.addMoneyToCard(annesCard, 100);
+
+        wasSuccessful = unicafeExactum.eatHeartily(annesCard);
+        System.out.println("there was enough money: " + wasSuccessful);
+
+        System.out.println("amount of money on the card is " + annesCard.balance() + " euros");
+
+        System.out.println(unicafeExactum);
+
     }
 }

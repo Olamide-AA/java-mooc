@@ -8,21 +8,8 @@ public class PaymentCard {
         this.balance = balance;
     }
 
-    public void eatAffordably() {
-        if (this.balance >= 2.60) {
-            this.balance -= 2.60;
-        } else {
-            System.out.println("Not enough balance");
-        }
-
-    }
-
-    public void eatHeartily() {
-        if (this.balance >= 4.60) {
-            this.balance -= 4.60;
-        } else {
-            System.out.println("Not enough balance");
-        }
+    public double balance() {
+        return this.balance;
     }
 
     public void addMoney(double amount) {
@@ -31,6 +18,14 @@ public class PaymentCard {
         } else {
             System.out.println("Enter an amount greater than zero");
         }
+    }
+
+    public boolean takeMoney(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+            return true;
+        }
+        return false;
     }
 
     public String toString() {
