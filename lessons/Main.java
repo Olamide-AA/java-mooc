@@ -7,7 +7,6 @@ public class Main {
         // Java changes ada to ada.toString at runtime
         System.out.println(ada);
 
-        ada.growOlder();
         ada.sack();
 
         System.out.println(ada);

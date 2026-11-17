@@ -4,7 +4,7 @@ package lessons;
 public class Person {
     // Instance variables || Object fields || Object attributes
     private String name;
-    private int age;
+    private SimpleDate birthday;
     private boolean isEmployed;
     private double height;
     private double weight;
@@ -18,13 +18,14 @@ public class Person {
      */
 
     // A constructor can use another constructor
-    public Person(String name) {
-        this(name, 0, 0.0, 0.0);
+    public Person(String name, int day, int month, int year) {
+        SimpleDate date = new SimpleDate(day, month, year);
+        this(name, date, 0.0, 0.0);
     }
 
-    public Person(String name, int age, double height, double weight) {
+    public Person(String name, SimpleDate birthday, double height, double weight) {
         this.name = name;
-        this.age = age;
+        this.birthday = birthday;
         this.isEmployed = true;
         this.height = height;
         this.weight = weight;
@@ -45,25 +46,27 @@ public class Person {
         return this.weight / ((this.height / 100) * (this.height / 100));
     }
 
-    public void growOlder() {
-        this.age += 1;
-    }
-
     public void sack() {
         this.isEmployed = false;
     }
 
-    public int returnAge() {
-        return this.age;
+    public SimpleDate getBirthday() {
+        return this.birthday;
     }
 
     public String returnDominantHand() {
         return this.dominantHand;
     }
 
-    // String representation of an object
-    public String toString() {
-        return this.name + ", age " + this.age + this.printEmploymentStatus();
+    public boolean olderThan(Person compared) {
+        if (this.birthday.before(compared.getBirthday())) {
+            return true;
+        }
+
+        return false;
+
+        // or return more directly:
+        // return this.birthday.before(compared.getBirthday());
     }
 
     public String printEmploymentStatus() {
@@ -74,5 +77,9 @@ public class Person {
             employed = " is not employed";
         }
         return employed;
+    } // String representation of an object
+
+    public String toString() {
+        return this.name + ", born on " + this.birthday;
     }
 }
